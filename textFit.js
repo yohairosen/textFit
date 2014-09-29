@@ -1,11 +1,11 @@
 /**
- * textFit v2.1.0
+ * textFit v2.0
  * Previously known as jQuery.textFit
  * 8/2013 by STRML (strml.github.com)
  * MIT License
- * 
+ *
  * To use: textFit(document.getElementById('target-div'), options);
- * 
+ *
  * Will make the *text* content inside a container scale to fit the container
  * The container is required to have a set width and height
  * Uses binary search to fit text with minimal layout calls.
@@ -162,13 +162,13 @@
         }
         innerSpan.style['height'] = height + "px";
       }
-        
+
     }
 
     // Calculate height without padding.
-    function innerHeight(el){
+    function innerHeight(el) {
       var style = window.getComputedStyle(el, null);
-      return el.clientHeight -
+      return  parseInt(style.getPropertyValue('height'), 10) -
         parseInt(style.getPropertyValue('padding-top'), 10) -
         parseInt(style.getPropertyValue('padding-bottom'), 10);
     }
@@ -176,12 +176,12 @@
     // Calculate width without padding.
     function innerWidth(el){
       var style = window.getComputedStyle(el, null);
-      return el.clientWidth -
+      return parseInt(style.getPropertyValue('width'), 10) -
         parseInt(style.getPropertyValue('padding-left'), 10) -
         parseInt(style.getPropertyValue('padding-right'), 10);
     }
 
-    //Returns true if it is a DOM element    
+    //Returns true if it is a DOM element
     function isElement(o){
       return (
         typeof HTMLElement === "object" ? o instanceof HTMLElement : //DOM2
